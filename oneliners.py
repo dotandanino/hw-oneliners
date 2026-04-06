@@ -9,7 +9,7 @@ if __name__ == '__main__':
         }
     """
     n,d = map(int, input().split())
-    output = "" # Put your line here (my solution: 5 chars)
+    output = [d]*n # Put your line here (my solution: 5 chars)
     print(output)
 
     """
@@ -17,7 +17,7 @@ if __name__ == '__main__':
        Example: v=[1,4,9,16], output=[3,5,7]
     """
     v=eval(input())
-    output = "" # Put your line here (my solution: 23 chars)
+    output = [b-a for a,b in zip(v,v[1:])] # Put your line here (my solution: 23 chars)
     print(output)
     
     """
@@ -25,7 +25,7 @@ if __name__ == '__main__':
        Example: v=[1,4,9,16,9,4], n=9, output=[2,4], since 9 is found in indices 2 and 4.
     """
     v,n = [f(x) for f,x in zip((eval,int),input().split())]
-    output = "" # Put your line here (my solution: 37 chars)
+    output = [i for i,x in enumerate(v) if x == n] # Put your line here (my solution: 37 chars)
     print(output)
 
     """
@@ -33,7 +33,7 @@ if __name__ == '__main__':
        Example: v=[1,4,9,16,9,4], n=9, output="!!=!=!"
     """
     v,n = [f(x) for f,x in zip((eval,int),input().split())]
-    output = "" # Put your line here (my solution: 42 chars)
+    output = "".join('=' if x==n else '!' for x in v) # Put your line here (my solution: 42 chars)
     print(output)
 
     """
@@ -41,7 +41,7 @@ if __name__ == '__main__':
        Example: v=[16,4,9,16,9,4,1], output=[1,4,9,16]
     """
     v=eval(input())
-    output = "" # Put your line here (my solution: 14 chars).
+    output = sorted(set(v)) # Put your line here (my solution: 14 chars).
     print(output)
 
     """
@@ -51,7 +51,7 @@ if __name__ == '__main__':
     """
     u,v = map(eval, input().split())
     from math import sqrt 
-    output = "" # Put your line here (my solution: 40 chars)
+    output = int(sqrt(sum((x-y)**2 for x,y in zip(u,v)))) # Put your line here (my solution: 40 chars)
     print(output)
 
     """
@@ -59,7 +59,7 @@ if __name__ == '__main__':
        Example: m=[[1,2],[3,4],[5,6]], output=[1,2,3,4,5,6]
     """
     m=eval(input())
-    output = "" # Put your line here (my solution: 9 chars)
+    output = sum(m,[]) # Put your line here (my solution: 9 chars)
     print(output)
 
     """
@@ -67,5 +67,5 @@ if __name__ == '__main__':
        Example: m=[[1,2],[3,4],[5,6]], output=[[1,3,5],[2,4,6]]
     """
     m=eval(input())
-    output = ""   # Put your line here (my solution: 24 chars. Hint: *m)
+    output = [list(x) for x in zip(*m)]  # Put your line here (my solution: 24 chars. Hint: *m)
     print(output)
